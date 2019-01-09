@@ -1,5 +1,7 @@
 # Docker Pandoc - Dockerfile
 
+# Mario Ban, 2018-12, based on https://kofler.info/ebooks/markdown_pandoc/
+
 FROM haskell
 
 # Install packets...
