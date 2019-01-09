@@ -1,6 +1,6 @@
 # docker-pandoc
 
-Test pandoc...
+Test markdown using pandoc v2.5
 
 ## Markdown
  - https://daringfireball.net/projects/markdown/syntax
@@ -10,9 +10,9 @@ Test pandoc...
  - https://github.com/jgm/pandoc
 
 ## Usage
- - docker run -it -v $(pwd):/data --name pandoc25 -h pandoc25 mokolea/pandoc:2.5
- - docker start -ai pandoc25
- - docker exec -it pandoc25 bash
+ - Start container from markdown directory: `docker run -it -v $(pwd):/data --name pandoc25 -h pandoc25 mokolea/pandoc:latest`
+ - Subsequent use of the same container: `docker start -ai pandoc25`
+ - Start bash shell in the already running container: `docker exec -it pandoc25 bash`
 
 ## Test
 ```
@@ -26,6 +26,10 @@ This is free software; see the source for copying conditions.
 There is no warranty, not even for merchantability or fitness
 for a particular purpose.
 root@pandoc25:/data# 
+
+root@pandoc25:/data# pandoc -o hello-world.pdf hello-world.md
+
+root@pandoc25:/data# pandoc -s -o hello-world.html hello-world.md --metadata pagetitle="hello-world"
 ```
 
 
