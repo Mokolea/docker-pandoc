@@ -37,7 +37,7 @@ RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 #ADD myfonts.tgz /usr/local/share/texmf
 #RUN texhash
 
-Create and set working directory
+# Create and set working directory
 WORKDIR /data
 
 # Create mount point /data to hold an externally mounted volume

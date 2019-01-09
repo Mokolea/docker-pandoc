@@ -1,4 +1,4 @@
-# docker-pandoc
+# docker-pandoc [![Show download size and number of layers](https://images.microbadger.com/badges/image/mokolea/pandoc.svg)](https://cloud.docker.com/u/mokolea/repository/docker/mokolea/pandoc)
 
 Test pandoc...
 
