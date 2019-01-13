@@ -4,7 +4,10 @@
 
 FROM haskell
 
-# Install packets...
+LABEL version="1.0"
+LABEL maintainer="Mario Ban <mario.ban@bluewin.ch>"
+
+# Install additional packages
 RUN apt-get update -y && \
     apt-get install -y -o Acquire::Retries=10 \
         --no-install-recommends \
@@ -26,7 +29,7 @@ RUN apt-get update -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Install pandoc (pandoc-2.3.1 or current pandoc)
+# Install pandoc (pandoc-2.3.1 or current pandoc 2.5)
 RUN cabal update && \
     cabal install pandoc && \
     ln -s /root/.cabal/bin/pandoc /usr/bin/pandoc
@@ -48,3 +51,5 @@ VOLUME ["/data"]
 # Set the default command to run when starting the container
 ENTRYPOINT ["/bin/bash"]
 
+#ENTRYPOINT ["pandoc"]
+#CMD ["--help"]

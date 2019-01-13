@@ -32,4 +32,8 @@ root@pandoc25:/data# pandoc -o hello-world.pdf hello-world.md
 root@pandoc25:/data# pandoc -s -o hello-world.html hello-world.md --metadata pagetitle="hello-world"
 ```
 
+## TODO
+ - Setup appropriate user to not run pandoc as root and so not have generated files from root in host file system
+ - Add hello-world.md
+
 -- Mario
