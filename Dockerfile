@@ -4,7 +4,7 @@
 
 FROM haskell
 
-LABEL version="1.0"
+LABEL version="1.0.1"
 LABEL maintainer="Mario Ban <mario.ban@bluewin.ch>"
 
 # Install additional packages
@@ -25,7 +25,8 @@ RUN apt-get update -y && \
       subversion \
       joe \
       vim \
-      less && \
+      less \
+      procps && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
