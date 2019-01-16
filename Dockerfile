@@ -30,6 +30,9 @@ RUN apt-get update -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Aliases
+RUN sed -i -e 's/# export LS_OPTIONS/export LS_OPTIONS/' -e 's/# alias/alias/' /root/.bashrc
+
 # Install pandoc (pandoc-2.3.1 or current pandoc 2.5)
 RUN cabal update && \
     cabal install pandoc && \
