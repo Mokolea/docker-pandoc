@@ -1,4 +1,4 @@
-# docker-pandoc [![Show download size and number of layers](https://images.microbadger.com/badges/image/mokolea/pandoc.svg)](https://cloud.docker.com/u/mokolea/repository/docker/mokolea/pandoc)
+# docker-pandoc [![Size](https://img.shields.io/microbadger/image-size/mokolea/pandoc.svg)](https://hub.docker.com/r/mokolea/pandoc) [![Layers](https://img.shields.io/microbadger/layers/mokolea/pandoc.svg)](https://hub.docker.com/r/mokolea/pandoc)
 
 Test markdown using pandoc v2.5
 
