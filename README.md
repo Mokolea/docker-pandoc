@@ -10,7 +10,7 @@ Test markdown using pandoc v2.5
  - https://github.com/jgm/pandoc
 
 ## Usage
- - Start container from markdown directory: `$ docker run -it -v $(pwd):/data --name pandoc25 -h pandoc25 mokolea/pandoc:latest`
+ - Start container from current markdown-project directory: `$ docker run -it -v $(pwd):/data --name pandoc25 -h pandoc25 mokolea/pandoc:latest`
  - Subsequent use of the same container: `$ docker start -ai pandoc25`
  - Start bash shell in the already running container: `$ docker exec -it pandoc25 bash`
 
