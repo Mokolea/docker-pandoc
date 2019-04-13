@@ -2,6 +2,8 @@
 
 Test markdown using pandoc v2.5
 
+[![Release](https://img.shields.io/github/release/Mokolea/docker-pandoc.svg)](https://github.com/Mokolea/docker-pandoc/releases)
+
 ## Markdown
  - https://daringfireball.net/projects/markdown/syntax
 
