@@ -13,6 +13,7 @@ Test markdown using pandoc v2.5
 
 ## Usage
  - Start container from current markdown-project directory: `$ docker run -it -v $(pwd):/data --name pandoc25 -h pandoc25 mokolea/pandoc:latest`
+ - Optional: Set user and group IDs to override the default user: `$ docker run -it -v $(pwd):/data -u $(id -u):$(id -g) --name pandoc25 -h pandoc25 mokolea/pandoc:latest`
  - Subsequent use of the same container: `$ docker start -ai pandoc25`
  - Start bash shell in the already running container: `$ docker exec -it pandoc25 bash`
 
@@ -35,7 +36,9 @@ root@pandoc25:/data# pandoc -s -o hello-world.html hello-world.md --metadata pag
 ```
 
 ## TODO
- - Setup appropriate user to not run pandoc as root and so not have generated files from root in host file system
  - Add hello-world.md
+
+## Done
+ - Setup appropriate user to not run pandoc as root and so not have generated files from root in host file system
 
 -- Mario

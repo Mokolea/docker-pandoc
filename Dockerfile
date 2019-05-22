@@ -4,7 +4,7 @@
 
 FROM haskell
 
-LABEL version="1.0.1"
+LABEL version="1.1.0"
 LABEL maintainer="Mario Ban <mario.ban@bluewin.ch>"
 
 # Install additional packages
@@ -46,11 +46,20 @@ RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 #ADD myfonts.tgz /usr/local/share/texmf
 #RUN texhash
 
+# Add user and group
+RUN groupadd --gid 1000 docker && useradd --uid 1000 --create-home --no-log-init -g docker docker
+
+# Aliases
+RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/' -e 's/#alias l/alias l/' /home/docker/.bashrc
+
 # Create and set working directory
 WORKDIR /data
 
 # Create mount point /data to hold an externally mounted volume
 VOLUME ["/data"]
+
+# Set user to use
+USER docker:docker
 
 # Set the default command to run when starting the container
 ENTRYPOINT ["/bin/bash"]
