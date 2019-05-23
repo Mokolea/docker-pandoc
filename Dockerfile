@@ -33,11 +33,6 @@ RUN apt-get update -y && \
 # Aliases
 RUN sed -i -e 's/# export LS_OPTIONS/export LS_OPTIONS/' -e 's/# alias/alias/' /root/.bashrc
 
-# Install pandoc (pandoc-2.3.1 or current pandoc 2.5)
-RUN cabal update && \
-    cabal install pandoc && \
-    ln -s /root/.cabal/bin/pandoc /usr/bin/pandoc
-
 # Set timezone CET (UTC+1)
 # (see https://serverfault.com/questions/683605)
 RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime
@@ -49,8 +44,17 @@ RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 # Add user and group
 RUN groupadd --gid 1000 docker && useradd --uid 1000 --create-home --no-log-init -g docker docker
 
+# Set user to use
+USER docker:docker
+
 # Aliases
 RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/' -e 's/#alias l/alias l/' /home/docker/.bashrc
+
+# Install pandoc (pandoc-2.3.1 or current pandoc 2.5)
+RUN cabal update && \
+    cabal install pandoc
+
+ENV PATH="/home/docker/.cabal/bin:${PATH}"
 
 # Create and set working directory
 WORKDIR /data
@@ -58,11 +62,9 @@ WORKDIR /data
 # Create mount point /data to hold an externally mounted volume
 VOLUME ["/data"]
 
-# Set user to use
-USER docker:docker
-
 # Set the default command to run when starting the container
 ENTRYPOINT ["/bin/bash"]
 
 #ENTRYPOINT ["pandoc"]
 #CMD ["--help"]
+
