@@ -4,7 +4,7 @@
 
 FROM haskell
 
-LABEL version="1.1.0"
+LABEL version="1.1.1"
 LABEL maintainer="Mario Ban <mario.ban@bluewin.ch>"
 
 # Install additional packages
@@ -50,7 +50,7 @@ USER docker:docker
 # Aliases
 RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/' -e 's/#alias l/alias l/' /home/docker/.bashrc
 
-# Install pandoc (pandoc-2.3.1 or current pandoc 2.5)
+# Install pandoc (current pandoc 2.7.2)
 RUN cabal update && \
     cabal install pandoc
 
@@ -67,4 +67,3 @@ ENTRYPOINT ["/bin/bash"]
 
 #ENTRYPOINT ["pandoc"]
 #CMD ["--help"]
-
