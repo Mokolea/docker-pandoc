@@ -14,6 +14,7 @@ RUN apt-get update -y && \
       texlive-latex-recommended \
       texlive-latex-extra \
       texlive-fonts-recommended \
+      texlive-fonts-extra \
       texlive-lang-german \
       texlive-pstricks \
       texlive-font-utils \
