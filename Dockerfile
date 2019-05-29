@@ -4,7 +4,7 @@
 
 FROM haskell
 
-LABEL version="1.1.1"
+LABEL version="1.2.0"
 LABEL maintainer="Mario Ban <mario.ban@bluewin.ch>"
 
 # Install additional packages
@@ -27,6 +27,7 @@ RUN apt-get update -y && \
       joe \
       vim \
       less \
+      sudo \
       procps && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -43,7 +44,11 @@ RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 #RUN texhash
 
 # Add user and group
-RUN groupadd --gid 1000 docker && useradd --uid 1000 --create-home --no-log-init -g docker docker
+RUN groupadd --gid 1000 docker && useradd --uid 1000 --create-home --no-log-init -g docker -G sudo docker
+
+# No password for sudo
+RUN echo "docker ALL=(ALL) NOPASSWD: ALL" >/etc/sudoers.d/010_docker-nopasswd
+RUN chmod 440 /etc/sudoers.d/010_docker-nopasswd
 
 # Set user to use
 USER docker:docker
