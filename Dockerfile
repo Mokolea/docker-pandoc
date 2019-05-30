@@ -4,8 +4,11 @@
 
 FROM haskell
 
-LABEL version="1.2.0"
+LABEL version="1.2.1"
 LABEL maintainer="Mario Ban <mario.ban@bluewin.ch>"
+
+ENV DEFAULT_UID 1000
+ENV DEFAULT_GID 1000
 
 # Install additional packages
 RUN apt-get update -y && \
@@ -44,7 +47,7 @@ RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 #RUN texhash
 
 # Add user and group
-RUN groupadd --gid 1000 docker && useradd --uid 1000 --create-home --no-log-init -g docker -G sudo docker
+RUN groupadd --gid $DEFAULT_GID docker && useradd --uid $DEFAULT_UID --create-home --no-log-init -g docker -G sudo docker
 
 # No password for sudo
 RUN echo "docker ALL=(ALL) NOPASSWD: ALL" >/etc/sudoers.d/010_docker-nopasswd
@@ -60,7 +63,7 @@ RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/' -e 's/#alias l
 RUN cabal update && \
     cabal install pandoc
 
-ENV PATH="/home/docker/.cabal/bin:${PATH}"
+ENV PATH /home/docker/.cabal/bin:$PATH
 
 # Create and set working directory
 WORKDIR /data
