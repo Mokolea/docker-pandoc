@@ -12,12 +12,12 @@ Test markdown using pandoc v2.7.n
  - https://github.com/jgm/pandoc
 
 ## Usage
- - Start container from current markdown-project directory: `$ docker run -it -v $(pwd):/data --name pandoc -h pandoc mokolea/pandoc:latest`
+ - Start new container from a current markdown-project directory: `$ docker run -it -v $(pwd):/data --name pandoc -h pandoc mokolea/pandoc:latest`
  - Optional: Set user and group IDs to override the default image user (1000:1000) by using parameter:
     - `-u root` for root user
     - `-u $(id -u):$(id -g)` for current host user (experimental - does not work without additional configuration)
- - Subsequent use of the same container: `$ docker start -ai pandoc`
- - Start bash shell in the already running container: `$ docker exec -it pandoc bash`
+ - Subsequent use of the same stopped container: `$ docker start -ai pandoc`
+ - Create bash shell session in the already running container: `$ docker exec -it pandoc bash`
 
 ## Test
 ```
