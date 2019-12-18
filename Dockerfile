@@ -60,9 +60,11 @@ USER docker:docker
 RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/' -e 's/#alias l/alias l/' /home/docker/.bashrc
 
 # Install pandoc (current pandoc 2.9)
-#ENV GHCRTS '-M2G'
-RUN cabal new-update && \
-    cabal new-install pandoc pandoc-citeproc pandoc-crossref
+ENV GHCRTS '-M2G'
+RUN cabal update && \
+    cabal install pandoc
+#RUN cabal new-update && \
+#    cabal new-install pandoc pandoc-citeproc pandoc-crossref
 
 ENV PATH /home/docker/.cabal/bin:$PATH
 
