@@ -2,7 +2,7 @@
 
 # Mario Ban, 2018-12, based on https://kofler.info/ebooks/markdown_pandoc/
 
-FROM haskell
+FROM haskell:8
 
 LABEL version="1.2.1"
 LABEL maintainer="Mario Ban <mario.ban@bluewin.ch>"
@@ -59,9 +59,9 @@ USER docker:docker
 # Aliases
 RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/' -e 's/#alias l/alias l/' /home/docker/.bashrc
 
-# Install pandoc (current pandoc 2.7.2)
-RUN cabal update && \
-    cabal install pandoc
+# Install pandoc (current pandoc 2.9)
+RUN cabal update && cabal --version && \
+    cabal install pandoc pandoc-citeproc
 
 ENV PATH /home/docker/.cabal/bin:$PATH
 
