@@ -4,7 +4,7 @@
 
 FROM haskell:8
 
-LABEL version="1.2.1"
+LABEL version="1.3.0"
 LABEL maintainer="Mario Ban <mario.ban@bluewin.ch>"
 
 ENV DEFAULT_UID 1000
@@ -59,10 +59,13 @@ USER docker:docker
 # Aliases
 RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/' -e 's/#alias l/alias l/' /home/docker/.bashrc
 
-# Install pandoc (current pandoc 2.9)
+# Docker Hub build problem: out of memory ...
 ENV GHCRTS '-M2G'
+
+# Install pandoc (current pandoc 2.9)
 RUN cabal update && \
     cabal install pandoc
+
 #RUN cabal new-update && \
 #    cabal new-install pandoc pandoc-citeproc pandoc-crossref
 

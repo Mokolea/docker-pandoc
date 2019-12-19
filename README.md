@@ -1,6 +1,6 @@
 # docker-pandoc [![Size](https://img.shields.io/microbadger/image-size/mokolea/pandoc.svg)](https://hub.docker.com/r/mokolea/pandoc) [![Layers](https://img.shields.io/microbadger/layers/mokolea/pandoc.svg)](https://hub.docker.com/r/mokolea/pandoc)
 
-Test markdown using pandoc v2.7.n
+Test markdown using pandoc v2.9.n
 
 [![Release](https://img.shields.io/github/release/Mokolea/docker-pandoc.svg)](https://github.com/Mokolea/docker-pandoc/releases)
 
@@ -22,8 +22,8 @@ Test markdown using pandoc v2.7.n
 ## Test
 ```
 docker@pandoc:/data$ pandoc --version
-pandoc 2.7.2
-Compiled with pandoc-types 1.17.5.4, texmath 0.11.2.2, skylighting 0.7.7
+pandoc 2.9
+Compiled with pandoc-types 1.20, texmath 0.12, skylighting 0.8.3
 Default user data directory: /home/docker/.local/share/pandoc or /home/docker/.pandoc
 Copyright (C) 2006-2019 John MacFarlane
 Web:  http://pandoc.org
