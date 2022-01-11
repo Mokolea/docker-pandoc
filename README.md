@@ -1,4 +1,4 @@
-# docker-pandoc [![Size](https://img.shields.io/microbadger/image-size/mokolea/pandoc.svg)](https://hub.docker.com/r/mokolea/pandoc) [![Layers](https://img.shields.io/microbadger/layers/mokolea/pandoc.svg)](https://hub.docker.com/r/mokolea/pandoc)
+# docker-pandoc [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/mokolea/pandoc)](https://hub.docker.com/r/mokolea/pandoc) [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/mokolea/pandoc/latest)](https://hub.docker.com/r/mokolea/pandoc)
 
 Test markdown using pandoc v2.9.n
 
